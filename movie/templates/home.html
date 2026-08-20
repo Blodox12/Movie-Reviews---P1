@@ -7,8 +7,6 @@
 
 <div class="container">
     <form action="">
-        <div class="mb-3">
-            <label for="searchMovie" class="form-label">
                 Search for movie:
             </label>
             <input type="text" class="form-control" name="searchMovie"> 
@@ -16,14 +14,16 @@
         <button type="submit" class="btn btn-primary">Search</button>
     </form>
     <p>searching for {{ searchTerm }}</p>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    {% for movie in movies %}
-    <div v-for="movie in movies" class="col">
-        <div class="card>">
-        <img src="{{ movie.image.url }}" class="card-img-top" alt="...">
-        <div class="card-body">
-             <h5 class="card-title">{{ movie.title }}</h5>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for movie in movies %}
+        <div v-for="movie in movies" class="col">
+            <div class="card">
+            <img src="{{ movie.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+             <h5 class="card-title fw bold">{{ movie.title }}</h5>
              <p class="card-text">{{ movie.description }}</p>
+             <p class="card-text">Genre: {{ movie.genre }}</p>
+             <p class="card-text">Year: {{ movie.year }}</p>
              {% if movie.url %}
                    <a href="{{ movie.url }}" class="btn btn-primary">Movie link</a>
              {% endif %}
